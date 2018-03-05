@@ -1,0 +1,19 @@
+version: '2'
+services:
+    sympo-app:
+        image: sympo
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://sympo-mysql:3306/sympo?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=sympo-elasticsearch:9300
+        ports:
+            - 8070:8070
+    sympo-mysql:
+        extends:
+            file: mysql.yml
+            service: sympo-mysql
+    sympo-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: sympo-elasticsearch
