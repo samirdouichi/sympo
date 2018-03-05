@@ -1,0 +1,122 @@
+entity Cabinet {
+	raisonSocial String maxlength(40),
+	raisonSocialArabe String maxlength(40),
+	rc String maxlength(20),
+	patente String maxlength(20),
+	numTelephone String maxlength(40),
+	email String minlength(5) maxlength(100),
+	adresse String maxlength(40),
+	nomGerant String maxlength(40),
+	activated Boolean required,
+	dateCreation LocalDate required,
+	remarque String maxlength(80)
+}
+entity Dossier {
+	numDossier String required minlength(1) maxlength(100),
+	status EtatDossier,
+	nomDossier String required minlength(60) maxlength(60),
+	dateCreation LocalDate required,
+	updatedAt LocalDate required,
+	dateCloture LocalDate,
+	remarque String  maxlength(100)
+}
+entity DossierInstruction {
+	numInstruction String required minlength(1) maxlength(6),
+	instruction String maxlength(100),
+	supportInstruction String maxlength(100),
+	dateCreationInstruction LocalDate,
+	remarque String  maxlength(100)
+}
+enum EtatDossier {
+	ENCOURS, ANNULE, ARRETE, SUSPENDU
+}
+entity CategorieDossier {
+	numCatDossier String required minlength(1) maxlength(6),
+	nomCatDossier String  minlength(1) maxlength(6),
+	remarque String  maxlength(100)
+}
+entity Correspondance {
+	correspondanceNom String required minlength(1) maxlength(15),
+	etatCorrespondance EtatCorrespondance,
+	remarque String  maxlength(100),
+	createdAt LocalDate required,
+	updatedAt LocalDate required
+}
+entity CorrespondanceDocument {
+	correspondanceDocument TextBlob,
+	remarque String  maxlength(100)
+}
+entity CorrespondanceType {
+	codeCorrespondance String maxlength(40),
+	nomCorrespondance String maxlength(40)
+}
+enum EtatCorrespondance {
+	MED, MAKAL
+}
+entity Debiteur {
+	codeDebiteur String maxlength(40),
+	raisonSocial String maxlength(40),
+	raisonSocialArabe String maxlength(40),
+	rc String maxlength(20),
+	patente String maxlength(20),
+	numTelephone String maxlength(40),
+	email String minlength(5) maxlength(100),
+	adresse String maxlength(40),
+	quartier String maxlength(40),
+	ville String maxlength(40),
+	fax String maxlength(40),
+	nomDebiteur String maxlength(40),
+	cin String maxlength(40),
+	profession String maxlength(40),
+	activated Boolean required,
+	remarque String maxlength(80)
+}
+entity Crediteur {
+	codeCrediteur String maxlength(40),
+	raisonSocial String maxlength(40),
+	raisonSocialArabe String maxlength(40),
+	rc String maxlength(20),
+	patente String maxlength(20),
+	numTelephone String maxlength(40),
+	email String minlength(5) maxlength(100),
+	adresse String maxlength(40),
+	quartier String maxlength(40),
+	ville String maxlength(40),
+	fax String maxlength(40),
+	nomCrediteur String maxlength(40),
+	prenomCrediteur String maxlength(40),
+	activated Boolean required,
+	remarque String maxlength(80)
+}
+entity Creance{
+	numCreance String required minlength(1) maxlength(6),
+	nomCreance String required minlength(1) maxlength(26),
+	creancesType CreancesType,
+	createdAt LocalDate required,
+	updatedAt LocalDate required,
+	remarque String
+}
+enum CreancesType {
+	FACTURE, CHEQUE, LETTRECHANGE, CONVENTION, CONTRTA
+}
+entity Partenaire {
+	nomPartenaire String required minlength(1) maxlength(10),
+	resetDate ZonedDateTime
+}
+relationship OneToMany {
+	
+	Dossier{dossierCategories} to CategorieDossier {categorieDossier(nomCatDossier)} , 
+	Crediteur{crediteurCreance} to Creance {creance(nomCreance)} ,
+	Dossier{dossierDebiteurs} to Debiteur {debiteur(codeDebiteur)} ,
+	Dossier{dossierPartenaires} to Partenaire {partenaire(nomPartenaire)} , 
+	Dossier{dossierCorrespondances} to Correspondance {correspondance(etatCorrespondance)} , 
+	Dossier{dossierInstructions} to DossierInstruction {dossierInstruction(numInstruction)}, 
+	Cabinet{cabinet} to Dossier{dossier(nomDossier)}
+}
+relationship OneToOne {
+	Correspondance{correspondanceTypes(correspondanceNom)} to CorrespondanceType{custom(codeCorrespondance)} ,
+	Crediteur{crediteur(nomCrediteur)} to DossierInstruction{custom(numInstruction)} ,
+	Correspondance{correspondanceDocuments(correspondanceNom)} to CorrespondanceDocument{custom(correspondanceDocument)}
+}
+
+paginate Cabinet,Dossier,Crediteur,Debiteur,Correspondance with pager
