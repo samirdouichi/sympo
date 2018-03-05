@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "custom",
+            "otherEntityName": "correspondance",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "correspondanceDocuments"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "correspondanceDocument",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "remarque",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "changelogDate": "20180305134314",
+    "entityTableName": "correspondance_document",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

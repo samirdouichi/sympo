@@ -1,0 +1,56 @@
+
+<div *ngIf="dossier">
+    <h2><span jhiTranslate="sympoApp.dossier.detail.title">Dossier</span> {{dossier.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.dossier.numDossier">Num Dossier</span></dt>
+        <dd>
+            <span>{{dossier.numDossier}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'sympoApp.EtatDossier.' + dossier.status}}">{{dossier.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.nomDossier">Nom Dossier</span></dt>
+        <dd>
+            <span>{{dossier.nomDossier}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{dossier.dateCreation | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.updatedAt">Updated At</span></dt>
+        <dd>
+            <span>{{dossier.updatedAt | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.dateCloture">Date Cloture</span></dt>
+        <dd>
+            <span>{{dossier.dateCloture | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{dossier.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossier.dossier">Dossier</span></dt>
+        <dd>
+            <div *ngIf="dossier.dossier">
+                <a [routerLink]="['/cabinet', dossier.dossier?.id]">{{dossier.dossier?.nomDossier}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dossier/'+ dossier.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

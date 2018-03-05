@@ -1,0 +1,34 @@
+
+{
+    "sympoApp": {
+        "cabinet" : {
+            "home": {
+                "title": "Cabinets",
+                "createLabel": "Maak een nieuwe Cabinet",
+                "createOrEditLabel": "Maak of wijzig een Cabinet",
+                "search": "Search for Cabinet"
+            },
+            "created": "A new Cabinet is created with identifier {{ param }}",
+            "updated": "A Cabinet is updated with identifier {{ param }}",
+            "deleted": "A Cabinet is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Cabinet {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Cabinet"
+            },
+            "raisonSocial": "Raison Social",
+            "raisonSocialArabe": "Raison Social Arabe",
+            "rc": "Rc",
+            "patente": "Patente",
+            "numTelephone": "Num Telephone",
+            "email": "Email",
+            "adresse": "Adresse",
+            "nomGerant": "Nom Gerant",
+            "activated": "Activated",
+            "dateCreation": "Date Creation",
+            "remarque": "Remarque",
+            "cabinet": "Cabinet"
+        }
+    }
+}

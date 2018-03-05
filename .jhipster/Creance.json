@@ -1,0 +1,64 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "creance",
+            "otherEntityName": "crediteur",
+            "otherEntityField": "nomCreance"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numCreance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 6
+        },
+        {
+            "fieldName": "nomCreance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 26
+        },
+        {
+            "fieldName": "creancesType",
+            "fieldType": "CreancesType",
+            "fieldValues": "FACTURE,CHEQUE,LETTRECHANGE,CONVENTION,CONTRTA"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "remarque",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180305134318",
+    "entityTableName": "creance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,60 @@
+
+<div *ngIf="correspondance">
+    <h2><span jhiTranslate="sympoApp.correspondance.detail.title">Correspondance</span> {{correspondance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.correspondance.correspondanceNom">Correspondance Nom</span></dt>
+        <dd>
+            <span>{{correspondance.correspondanceNom}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.etatCorrespondance">Etat Correspondance</span></dt>
+        <dd>
+            <span jhiTranslate="{{'sympoApp.EtatCorrespondance.' + correspondance.etatCorrespondance}}">{{correspondance.etatCorrespondance}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{correspondance.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.createdAt">Created At</span></dt>
+        <dd>
+            <span>{{correspondance.createdAt | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.updatedAt">Updated At</span></dt>
+        <dd>
+            <span>{{correspondance.updatedAt | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.correspondanceTypes">Correspondance Types</span></dt>
+        <dd>
+            <div *ngIf="correspondance.correspondanceTypes">
+                <a [routerLink]="['/correspondance-type', correspondance.correspondanceTypes?.id]">{{correspondance.correspondanceTypes?.correspondanceNom}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.correspondanceDocuments">Correspondance Documents</span></dt>
+        <dd>
+            <div *ngIf="correspondance.correspondanceDocuments">
+                <a [routerLink]="['/correspondance-document', correspondance.correspondanceDocuments?.id]">{{correspondance.correspondanceDocuments?.correspondanceNom}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.correspondance.correspondance">Correspondance</span></dt>
+        <dd>
+            <div *ngIf="correspondance.correspondance">
+                <a [routerLink]="['/dossier', correspondance.correspondance?.id]">{{correspondance.correspondance?.etatCorrespondance}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'correspondance/'+ correspondance.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,26 @@
+
+{
+    "sympoApp": {
+        "categorieDossier" : {
+            "home": {
+                "title": "Categorie Dossiers",
+                "createLabel": "Create a new Categorie Dossier",
+                "createOrEditLabel": "Create or edit a Categorie Dossier",
+                "search": "Search for Categorie Dossier"
+            },
+            "created": "A new Categorie Dossier is created with identifier {{ param }}",
+            "updated": "A Categorie Dossier is updated with identifier {{ param }}",
+            "deleted": "A Categorie Dossier is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Categorie Dossier {{ id }}?"
+            },
+            "detail": {
+                "title": "Categorie Dossier"
+            },
+            "numCatDossier": "Num Cat Dossier",
+            "nomCatDossier": "Nom Cat Dossier",
+            "remarque": "Remarque",
+            "categorieDossier": "Categorie Dossier"
+        }
+    }
+}

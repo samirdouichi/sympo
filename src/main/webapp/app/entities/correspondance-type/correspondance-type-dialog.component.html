@@ -1,0 +1,47 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCorrespondanceTypeLabel" jhiTranslate="sympoApp.correspondanceType.home.createOrEditLabel">Create or edit a Correspondance Type</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!correspondanceType.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="correspondanceType.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.correspondanceType.codeCorrespondance" for="field_codeCorrespondance">Code Correspondance</label>
+            <input type="text" class="form-control" name="codeCorrespondance" id="field_codeCorrespondance"
+                [(ngModel)]="correspondanceType.codeCorrespondance" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.codeCorrespondance?.dirty && editForm.controls.codeCorrespondance?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.codeCorrespondance?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.correspondanceType.nomCorrespondance" for="field_nomCorrespondance">Nom Correspondance</label>
+            <input type="text" class="form-control" name="nomCorrespondance" id="field_nomCorrespondance"
+                [(ngModel)]="correspondanceType.nomCorrespondance" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.nomCorrespondance?.dirty && editForm.controls.nomCorrespondance?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCorrespondance?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

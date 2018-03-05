@@ -1,0 +1,12 @@
+{
+    "sympoApp": {
+        "CreancesType" : {
+            "null": "",
+            "FACTURE": "FACTURE",
+            "CHEQUE": "CHEQUE",
+            "LETTRECHANGE": "LETTRECHANGE",
+            "CONVENTION": "CONVENTION",
+            "CONTRTA": "CONTRTA"
+        }
+    }
+}

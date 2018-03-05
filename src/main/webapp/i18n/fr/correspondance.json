@@ -1,0 +1,30 @@
+
+{
+    "sympoApp": {
+        "correspondance" : {
+            "home": {
+                "title": "Correspondances",
+                "createLabel": "Créer un nouveau Correspondance",
+                "createOrEditLabel": "Créer ou éditer un Correspondance",
+                "search": "Recherche pour Correspondance"
+            },
+            "created": "Un nouveau Correspondance a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Correspondance avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Correspondance avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Correspondance {{ id }} ?"
+            },
+            "detail": {
+                "title": "Correspondance"
+            },
+            "correspondanceNom": "Correspondance Nom",
+            "etatCorrespondance": "Etat Correspondance",
+            "remarque": "Remarque",
+            "createdAt": "Created At",
+            "updatedAt": "Updated At",
+            "correspondanceTypes": "Correspondance Types",
+            "correspondanceDocuments": "Correspondance Documents",
+            "correspondance": "Correspondance"
+        }
+    }
+}

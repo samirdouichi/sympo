@@ -1,0 +1,39 @@
+
+{
+    "sympoApp": {
+        "debiteur" : {
+            "home": {
+                "title": "Debiteurs",
+                "createLabel": "Créer un nouveau Debiteur",
+                "createOrEditLabel": "Créer ou éditer un Debiteur",
+                "search": "Recherche pour Debiteur"
+            },
+            "created": "Un nouveau Debiteur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Debiteur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Debiteur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Debiteur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Debiteur"
+            },
+            "codeDebiteur": "Code Debiteur",
+            "raisonSocial": "Raison Social",
+            "raisonSocialArabe": "Raison Social Arabe",
+            "rc": "Rc",
+            "patente": "Patente",
+            "numTelephone": "Num Telephone",
+            "email": "Email",
+            "adresse": "Adresse",
+            "quartier": "Quartier",
+            "ville": "Ville",
+            "fax": "Fax",
+            "nomDebiteur": "Nom Debiteur",
+            "cin": "Cin",
+            "profession": "Profession",
+            "activated": "Activated",
+            "remarque": "Remarque",
+            "debiteur": "Debiteur"
+        }
+    }
+}

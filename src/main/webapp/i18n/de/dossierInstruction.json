@@ -1,0 +1,29 @@
+
+{
+    "sympoApp": {
+        "dossierInstruction" : {
+            "home": {
+                "title": "Dossier Instructions",
+                "createLabel": "Dossier Instruction erstellen",
+                "createOrEditLabel": "Dossier Instruction erstellen oder bearbeiten",
+                "search": "Suche nach Dossier Instruction"
+            },
+            "created": "Dossier Instruction erstellt mit ID {{ param }}",
+            "updated": "Dossier Instruction aktualisiert mit ID {{ param }}",
+            "deleted": "Dossier Instruction gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Dossier Instruction {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Dossier Instruction"
+            },
+            "numInstruction": "Num Instruction",
+            "instruction": "Instruction",
+            "supportInstruction": "Support Instruction",
+            "dateCreationInstruction": "Date Creation Instruction",
+            "remarque": "Remarque",
+            "custom": "Custom",
+            "dossierInstruction": "Dossier Instruction"
+        }
+    }
+}

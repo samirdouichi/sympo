@@ -1,0 +1,48 @@
+
+<div *ngIf="dossierInstruction">
+    <h2><span jhiTranslate="sympoApp.dossierInstruction.detail.title">Dossier Instruction</span> {{dossierInstruction.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.dossierInstruction.numInstruction">Num Instruction</span></dt>
+        <dd>
+            <span>{{dossierInstruction.numInstruction}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossierInstruction.instruction">Instruction</span></dt>
+        <dd>
+            <span>{{dossierInstruction.instruction}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossierInstruction.supportInstruction">Support Instruction</span></dt>
+        <dd>
+            <span>{{dossierInstruction.supportInstruction}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossierInstruction.dateCreationInstruction">Date Creation Instruction</span></dt>
+        <dd>
+            <span>{{dossierInstruction.dateCreationInstruction | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossierInstruction.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{dossierInstruction.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.dossierInstruction.dossierInstruction">Dossier Instruction</span></dt>
+        <dd>
+            <div *ngIf="dossierInstruction.dossierInstruction">
+                <a [routerLink]="['/dossier', dossierInstruction.dossierInstruction?.id]">{{dossierInstruction.dossierInstruction?.numInstruction}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dossier-instruction/'+ dossierInstruction.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

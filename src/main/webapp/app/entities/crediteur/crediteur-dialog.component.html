@@ -1,0 +1,201 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCrediteurLabel" jhiTranslate="sympoApp.crediteur.home.createOrEditLabel">Create or edit a Crediteur</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!crediteur.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="crediteur.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.codeCrediteur" for="field_codeCrediteur">Code Crediteur</label>
+            <input type="text" class="form-control" name="codeCrediteur" id="field_codeCrediteur"
+                [(ngModel)]="crediteur.codeCrediteur" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.codeCrediteur?.dirty && editForm.controls.codeCrediteur?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.codeCrediteur?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.raisonSocial" for="field_raisonSocial">Raison Social</label>
+            <input type="text" class="form-control" name="raisonSocial" id="field_raisonSocial"
+                [(ngModel)]="crediteur.raisonSocial" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.raisonSocial?.dirty && editForm.controls.raisonSocial?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.raisonSocial?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.raisonSocialArabe" for="field_raisonSocialArabe">Raison Social Arabe</label>
+            <input type="text" class="form-control" name="raisonSocialArabe" id="field_raisonSocialArabe"
+                [(ngModel)]="crediteur.raisonSocialArabe" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.raisonSocialArabe?.dirty && editForm.controls.raisonSocialArabe?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.raisonSocialArabe?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.rc" for="field_rc">Rc</label>
+            <input type="text" class="form-control" name="rc" id="field_rc"
+                [(ngModel)]="crediteur.rc" maxlength="20"/>
+            <div [hidden]="!(editForm.controls.rc?.dirty && editForm.controls.rc?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.rc?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.patente" for="field_patente">Patente</label>
+            <input type="text" class="form-control" name="patente" id="field_patente"
+                [(ngModel)]="crediteur.patente" maxlength="20"/>
+            <div [hidden]="!(editForm.controls.patente?.dirty && editForm.controls.patente?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.patente?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.numTelephone" for="field_numTelephone">Num Telephone</label>
+            <input type="text" class="form-control" name="numTelephone" id="field_numTelephone"
+                [(ngModel)]="crediteur.numTelephone" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.numTelephone?.dirty && editForm.controls.numTelephone?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numTelephone?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="crediteur.email" minlength="5" maxlength="100"/>
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+                   This field is required to be at least 5 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.adresse" for="field_adresse">Adresse</label>
+            <input type="text" class="form-control" name="adresse" id="field_adresse"
+                [(ngModel)]="crediteur.adresse" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.adresse?.dirty && editForm.controls.adresse?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.adresse?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.quartier" for="field_quartier">Quartier</label>
+            <input type="text" class="form-control" name="quartier" id="field_quartier"
+                [(ngModel)]="crediteur.quartier" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.quartier?.dirty && editForm.controls.quartier?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.quartier?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.ville" for="field_ville">Ville</label>
+            <input type="text" class="form-control" name="ville" id="field_ville"
+                [(ngModel)]="crediteur.ville" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.ville?.dirty && editForm.controls.ville?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ville?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.fax" for="field_fax">Fax</label>
+            <input type="text" class="form-control" name="fax" id="field_fax"
+                [(ngModel)]="crediteur.fax" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.fax?.dirty && editForm.controls.fax?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fax?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.nomCrediteur" for="field_nomCrediteur">Nom Crediteur</label>
+            <input type="text" class="form-control" name="nomCrediteur" id="field_nomCrediteur"
+                [(ngModel)]="crediteur.nomCrediteur" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.nomCrediteur?.dirty && editForm.controls.nomCrediteur?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCrediteur?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.prenomCrediteur" for="field_prenomCrediteur">Prenom Crediteur</label>
+            <input type="text" class="form-control" name="prenomCrediteur" id="field_prenomCrediteur"
+                [(ngModel)]="crediteur.prenomCrediteur" maxlength="40"/>
+            <div [hidden]="!(editForm.controls.prenomCrediteur?.dirty && editForm.controls.prenomCrediteur?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.prenomCrediteur?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                   This field cannot be longer than 40 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.activated" for="field_activated">Activated</label>
+            <input type="checkbox" class="form-control" name="activated" id="field_activated"
+                [(ngModel)]="crediteur.activated" />
+            <div [hidden]="!(editForm.controls.activated?.dirty && editForm.controls.activated?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.activated?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.remarque" for="field_remarque">Remarque</label>
+            <input type="text" class="form-control" name="remarque" id="field_remarque"
+                [(ngModel)]="crediteur.remarque" maxlength="80"/>
+            <div [hidden]="!(editForm.controls.remarque?.dirty && editForm.controls.remarque?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.remarque?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 80 }">
+                   This field cannot be longer than 80 characters.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.crediteur.crediteur" for="field_crediteur">Crediteur</label>
+            <select class="form-control" id="field_crediteur" name="crediteur" [(ngModel)]="crediteur.crediteur">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="dossierInstructionOption.id === crediteur.crediteur?.id ? crediteur.crediteur : dossierInstructionOption" *ngFor="let dossierInstructionOption of crediteurs; trackBy: trackDossierInstructionById">{{dossierInstructionOption.nomCrediteur}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

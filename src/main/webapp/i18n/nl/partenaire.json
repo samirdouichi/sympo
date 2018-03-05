@@ -1,0 +1,25 @@
+
+{
+    "sympoApp": {
+        "partenaire" : {
+            "home": {
+                "title": "Partenaires",
+                "createLabel": "Maak een nieuwe Partenaire",
+                "createOrEditLabel": "Maak of wijzig een Partenaire",
+                "search": "Search for Partenaire"
+            },
+            "created": "A new Partenaire is created with identifier {{ param }}",
+            "updated": "A Partenaire is updated with identifier {{ param }}",
+            "deleted": "A Partenaire is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Partenaire {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Partenaire"
+            },
+            "nomPartenaire": "Nom Partenaire",
+            "resetDate": "Reset Date",
+            "partenaire": "Partenaire"
+        }
+    }
+}

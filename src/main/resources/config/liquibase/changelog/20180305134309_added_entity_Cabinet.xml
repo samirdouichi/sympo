@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Cabinet.
+    -->
+    <changeSet id="20180305134309-1" author="jhipster">
+        <createTable tableName="cabinet">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="raison_social" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="raison_social_arabe" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="rc" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="patente" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="num_telephone" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="email" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="adresse" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nom_gerant" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="activated" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="date_creation" type="date">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="remarque" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

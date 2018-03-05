@@ -1,0 +1,25 @@
+
+{
+    "sympoApp": {
+        "correspondanceType" : {
+            "home": {
+                "title": "Correspondance Types",
+                "createLabel": "Create a new Correspondance Type",
+                "createOrEditLabel": "Create or edit a Correspondance Type",
+                "search": "Search for Correspondance Type"
+            },
+            "created": "A new Correspondance Type is created with identifier {{ param }}",
+            "updated": "A Correspondance Type is updated with identifier {{ param }}",
+            "deleted": "A Correspondance Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Correspondance Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Correspondance Type"
+            },
+            "codeCorrespondance": "Code Correspondance",
+            "nomCorrespondance": "Nom Correspondance",
+            "custom": "Custom"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "partenaire",
+            "otherEntityName": "dossier",
+            "otherEntityField": "nomPartenaire"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nomPartenaire",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "resetDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20180305134319",
+    "entityTableName": "partenaire",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

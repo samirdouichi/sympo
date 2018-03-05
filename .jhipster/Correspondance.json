@@ -1,0 +1,73 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "correspondanceTypes",
+            "otherEntityName": "correspondanceType",
+            "otherEntityField": "correspondanceNom",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "custom(codeCorrespondance)"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "correspondanceDocuments",
+            "otherEntityName": "correspondanceDocument",
+            "otherEntityField": "correspondanceNom",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "custom(correspondanceDocument)"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "correspondance",
+            "otherEntityName": "dossier",
+            "otherEntityField": "etatCorrespondance"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "correspondanceNom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "etatCorrespondance",
+            "fieldType": "EtatCorrespondance",
+            "fieldValues": "MED,MAKAL"
+        },
+        {
+            "fieldName": "remarque",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180305134313",
+    "entityTableName": "correspondance",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

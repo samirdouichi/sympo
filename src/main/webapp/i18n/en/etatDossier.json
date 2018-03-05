@@ -1,0 +1,11 @@
+{
+    "sympoApp": {
+        "EtatDossier" : {
+            "null": "",
+            "ENCOURS": "ENCOURS",
+            "ANNULE": "ANNULE",
+            "ARRETE": "ARRETE",
+            "SUSPENDU": "SUSPENDU"
+        }
+    }
+}

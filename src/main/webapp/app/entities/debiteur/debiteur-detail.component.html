@@ -1,0 +1,92 @@
+
+<div *ngIf="debiteur">
+    <h2><span jhiTranslate="sympoApp.debiteur.detail.title">Debiteur</span> {{debiteur.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.debiteur.codeDebiteur">Code Debiteur</span></dt>
+        <dd>
+            <span>{{debiteur.codeDebiteur}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.raisonSocial">Raison Social</span></dt>
+        <dd>
+            <span>{{debiteur.raisonSocial}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.raisonSocialArabe">Raison Social Arabe</span></dt>
+        <dd>
+            <span>{{debiteur.raisonSocialArabe}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.rc">Rc</span></dt>
+        <dd>
+            <span>{{debiteur.rc}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.patente">Patente</span></dt>
+        <dd>
+            <span>{{debiteur.patente}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.numTelephone">Num Telephone</span></dt>
+        <dd>
+            <span>{{debiteur.numTelephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.email">Email</span></dt>
+        <dd>
+            <span>{{debiteur.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{debiteur.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.quartier">Quartier</span></dt>
+        <dd>
+            <span>{{debiteur.quartier}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.ville">Ville</span></dt>
+        <dd>
+            <span>{{debiteur.ville}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.fax">Fax</span></dt>
+        <dd>
+            <span>{{debiteur.fax}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.nomDebiteur">Nom Debiteur</span></dt>
+        <dd>
+            <span>{{debiteur.nomDebiteur}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.cin">Cin</span></dt>
+        <dd>
+            <span>{{debiteur.cin}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.profession">Profession</span></dt>
+        <dd>
+            <span>{{debiteur.profession}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.activated">Activated</span></dt>
+        <dd>
+            <span>{{debiteur.activated}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{debiteur.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.debiteur.debiteur">Debiteur</span></dt>
+        <dd>
+            <div *ngIf="debiteur.debiteur">
+                <a [routerLink]="['/dossier', debiteur.debiteur?.id]">{{debiteur.debiteur?.codeDebiteur}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'debiteur/'+ debiteur.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

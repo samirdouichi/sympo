@@ -1,0 +1,9 @@
+{
+    "sympoApp": {
+        "EtatCorrespondance" : {
+            "null": "",
+            "MED": "MED",
+            "MAKAL": "MAKAL"
+        }
+    }
+}

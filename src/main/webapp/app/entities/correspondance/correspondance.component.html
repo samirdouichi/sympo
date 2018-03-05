@@ -1,0 +1,106 @@
+<div>
+    <h2>
+        <span jhiTranslate="sympoApp.correspondance.home.title">Correspondances</span>
+        <button class="btn btn-primary float-right jh-create-entity create-correspondance" [routerLink]="['/', { outlets: { popup: ['correspondance-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="sympoApp.correspondance.home.createLabel">
+            Create new Correspondance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'sympoApp.correspondance.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="correspondances">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="correspondanceNom"><span jhiTranslate="sympoApp.correspondance.correspondanceNom">Correspondance Nom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="etatCorrespondance"><span jhiTranslate="sympoApp.correspondance.etatCorrespondance">Etat Correspondance</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="remarque"><span jhiTranslate="sympoApp.correspondance.remarque">Remarque</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdAt"><span jhiTranslate="sympoApp.correspondance.createdAt">Created At</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedAt"><span jhiTranslate="sympoApp.correspondance.updatedAt">Updated At</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="correspondanceTypes.correspondanceNom"><span jhiTranslate="sympoApp.correspondance.correspondanceTypes">Correspondance Types</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="correspondanceDocuments.correspondanceNom"><span jhiTranslate="sympoApp.correspondance.correspondanceDocuments">Correspondance Documents</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="correspondance.etatCorrespondance"><span jhiTranslate="sympoApp.correspondance.correspondance">Correspondance</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let correspondance of correspondances ;trackBy: trackId">
+                <td><a [routerLink]="['../correspondance', correspondance.id ]">{{correspondance.id}}</a></td>
+                <td>{{correspondance.correspondanceNom}}</td>
+                <td jhiTranslate="{{'sympoApp.EtatCorrespondance.' + correspondance.etatCorrespondance}}">{{correspondance.etatCorrespondance}}</td>
+                <td>{{correspondance.remarque}}</td>
+                <td>{{correspondance.createdAt | date:'mediumDate'}}</td>
+                <td>{{correspondance.updatedAt | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="correspondance.correspondanceTypes">
+                        <a [routerLink]="['../correspondance-type', correspondance.correspondanceTypes?.id ]" >{{correspondance.correspondanceTypes?.correspondanceNom}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="correspondance.correspondanceDocuments">
+                        <a [routerLink]="['../correspondance-document', correspondance.correspondanceDocuments?.id ]" >{{correspondance.correspondanceDocuments?.correspondanceNom}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="correspondance.correspondance">
+                        <a [routerLink]="['../dossier', correspondance.correspondance?.id ]" >{{correspondance.correspondance?.etatCorrespondance}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../correspondance', correspondance.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'correspondance/'+ correspondance.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'correspondance/'+ correspondance.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="correspondances && correspondances.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

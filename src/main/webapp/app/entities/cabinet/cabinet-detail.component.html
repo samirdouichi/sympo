@@ -1,0 +1,66 @@
+
+<div *ngIf="cabinet">
+    <h2><span jhiTranslate="sympoApp.cabinet.detail.title">Cabinet</span> {{cabinet.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.cabinet.raisonSocial">Raison Social</span></dt>
+        <dd>
+            <span>{{cabinet.raisonSocial}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.raisonSocialArabe">Raison Social Arabe</span></dt>
+        <dd>
+            <span>{{cabinet.raisonSocialArabe}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.rc">Rc</span></dt>
+        <dd>
+            <span>{{cabinet.rc}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.patente">Patente</span></dt>
+        <dd>
+            <span>{{cabinet.patente}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.numTelephone">Num Telephone</span></dt>
+        <dd>
+            <span>{{cabinet.numTelephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.email">Email</span></dt>
+        <dd>
+            <span>{{cabinet.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{cabinet.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.nomGerant">Nom Gerant</span></dt>
+        <dd>
+            <span>{{cabinet.nomGerant}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.activated">Activated</span></dt>
+        <dd>
+            <span>{{cabinet.activated}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{cabinet.dateCreation | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.cabinet.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{cabinet.remarque}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cabinet/'+ cabinet.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

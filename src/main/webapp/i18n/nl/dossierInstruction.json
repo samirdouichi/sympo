@@ -1,0 +1,29 @@
+
+{
+    "sympoApp": {
+        "dossierInstruction" : {
+            "home": {
+                "title": "Dossier Instructions",
+                "createLabel": "Maak een nieuwe Dossier Instruction",
+                "createOrEditLabel": "Maak of wijzig een Dossier Instruction",
+                "search": "Search for Dossier Instruction"
+            },
+            "created": "A new Dossier Instruction is created with identifier {{ param }}",
+            "updated": "A Dossier Instruction is updated with identifier {{ param }}",
+            "deleted": "A Dossier Instruction is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Dossier Instruction {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Dossier Instruction"
+            },
+            "numInstruction": "Num Instruction",
+            "instruction": "Instruction",
+            "supportInstruction": "Support Instruction",
+            "dateCreationInstruction": "Date Creation Instruction",
+            "remarque": "Remarque",
+            "custom": "Custom",
+            "dossierInstruction": "Dossier Instruction"
+        }
+    }
+}
