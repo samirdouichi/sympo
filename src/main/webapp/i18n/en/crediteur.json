@@ -1,0 +1,39 @@
+
+{
+    "sympoApp": {
+        "crediteur" : {
+            "home": {
+                "title": "Crediteurs",
+                "createLabel": "Create a new Crediteur",
+                "createOrEditLabel": "Create or edit a Crediteur",
+                "search": "Search for Crediteur"
+            },
+            "created": "A new Crediteur is created with identifier {{ param }}",
+            "updated": "A Crediteur is updated with identifier {{ param }}",
+            "deleted": "A Crediteur is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Crediteur {{ id }}?"
+            },
+            "detail": {
+                "title": "Crediteur"
+            },
+            "codeCrediteur": "Code Crediteur",
+            "raisonSocial": "Raison Social",
+            "raisonSocialArabe": "Raison Social Arabe",
+            "rc": "Rc",
+            "patente": "Patente",
+            "numTelephone": "Num Telephone",
+            "email": "Email",
+            "adresse": "Adresse",
+            "quartier": "Quartier",
+            "ville": "Ville",
+            "fax": "Fax",
+            "nomCrediteur": "Nom Crediteur",
+            "prenomCrediteur": "Prenom Crediteur",
+            "activated": "Activated",
+            "remarque": "Remarque",
+            "crediteur": "Crediteur",
+            "crediteurCreance": "Crediteur Creance"
+        }
+    }
+}

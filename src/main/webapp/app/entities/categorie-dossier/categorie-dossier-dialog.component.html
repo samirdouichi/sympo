@@ -1,0 +1,77 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCategorieDossierLabel" jhiTranslate="sympoApp.categorieDossier.home.createOrEditLabel">Create or edit a Categorie Dossier</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!categorieDossier.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="categorieDossier.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.categorieDossier.numCatDossier" for="field_numCatDossier">Num Cat Dossier</label>
+            <input type="text" class="form-control" name="numCatDossier" id="field_numCatDossier"
+                [(ngModel)]="categorieDossier.numCatDossier" required minlength="1" maxlength="6"/>
+            <div [hidden]="!(editForm.controls.numCatDossier?.dirty && editForm.controls.numCatDossier?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numCatDossier?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numCatDossier?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numCatDossier?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 6 }">
+                   This field cannot be longer than 6 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.categorieDossier.nomCatDossier" for="field_nomCatDossier">Nom Cat Dossier</label>
+            <input type="text" class="form-control" name="nomCatDossier" id="field_nomCatDossier"
+                [(ngModel)]="categorieDossier.nomCatDossier" minlength="1" maxlength="6"/>
+            <div [hidden]="!(editForm.controls.nomCatDossier?.dirty && editForm.controls.nomCatDossier?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCatDossier?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCatDossier?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 6 }">
+                   This field cannot be longer than 6 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.categorieDossier.remarque" for="field_remarque">Remarque</label>
+            <input type="text" class="form-control" name="remarque" id="field_remarque"
+                [(ngModel)]="categorieDossier.remarque" maxlength="100"/>
+            <div [hidden]="!(editForm.controls.remarque?.dirty && editForm.controls.remarque?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.remarque?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.categorieDossier.categorieDossier" for="field_categorieDossier">Categorie Dossier</label>
+            <select class="form-control" id="field_categorieDossier" name="categorieDossier" [(ngModel)]="categorieDossier.categorieDossier" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="dossierOption.id === categorieDossier.categorieDossier?.id ? categorieDossier.categorieDossier : dossierOption" *ngFor="let dossierOption of dossiers; trackBy: trackDossierById">{{dossierOption.nomCatDossier}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

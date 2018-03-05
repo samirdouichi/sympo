@@ -1,0 +1,88 @@
+
+<div *ngIf="crediteur">
+    <h2><span jhiTranslate="sympoApp.crediteur.detail.title">Crediteur</span> {{crediteur.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.crediteur.codeCrediteur">Code Crediteur</span></dt>
+        <dd>
+            <span>{{crediteur.codeCrediteur}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.raisonSocial">Raison Social</span></dt>
+        <dd>
+            <span>{{crediteur.raisonSocial}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.raisonSocialArabe">Raison Social Arabe</span></dt>
+        <dd>
+            <span>{{crediteur.raisonSocialArabe}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.rc">Rc</span></dt>
+        <dd>
+            <span>{{crediteur.rc}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.patente">Patente</span></dt>
+        <dd>
+            <span>{{crediteur.patente}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.numTelephone">Num Telephone</span></dt>
+        <dd>
+            <span>{{crediteur.numTelephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.email">Email</span></dt>
+        <dd>
+            <span>{{crediteur.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{crediteur.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.quartier">Quartier</span></dt>
+        <dd>
+            <span>{{crediteur.quartier}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.ville">Ville</span></dt>
+        <dd>
+            <span>{{crediteur.ville}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.fax">Fax</span></dt>
+        <dd>
+            <span>{{crediteur.fax}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.nomCrediteur">Nom Crediteur</span></dt>
+        <dd>
+            <span>{{crediteur.nomCrediteur}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.prenomCrediteur">Prenom Crediteur</span></dt>
+        <dd>
+            <span>{{crediteur.prenomCrediteur}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.activated">Activated</span></dt>
+        <dd>
+            <span>{{crediteur.activated}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{crediteur.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.crediteur.crediteur">Crediteur</span></dt>
+        <dd>
+            <div *ngIf="crediteur.crediteur">
+                <a [routerLink]="['/dossier-instruction', crediteur.crediteur?.id]">{{crediteur.crediteur?.nomCrediteur}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'crediteur/'+ crediteur.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

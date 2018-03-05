@@ -1,0 +1,40 @@
+
+<div *ngIf="categorieDossier">
+    <h2><span jhiTranslate="sympoApp.categorieDossier.detail.title">Categorie Dossier</span> {{categorieDossier.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.categorieDossier.numCatDossier">Num Cat Dossier</span></dt>
+        <dd>
+            <span>{{categorieDossier.numCatDossier}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.categorieDossier.nomCatDossier">Nom Cat Dossier</span></dt>
+        <dd>
+            <span>{{categorieDossier.nomCatDossier}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.categorieDossier.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{categorieDossier.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.categorieDossier.categorieDossier">Categorie Dossier</span></dt>
+        <dd>
+            <div *ngIf="categorieDossier.categorieDossier">
+                <a [routerLink]="['/dossier', categorieDossier.categorieDossier?.id]">{{categorieDossier.categorieDossier?.nomCatDossier}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'categorie-dossier/'+ categorieDossier.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

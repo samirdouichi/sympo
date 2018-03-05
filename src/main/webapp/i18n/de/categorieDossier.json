@@ -1,0 +1,26 @@
+
+{
+    "sympoApp": {
+        "categorieDossier" : {
+            "home": {
+                "title": "Categorie Dossiers",
+                "createLabel": "Categorie Dossier erstellen",
+                "createOrEditLabel": "Categorie Dossier erstellen oder bearbeiten",
+                "search": "Suche nach Categorie Dossier"
+            },
+            "created": "Categorie Dossier erstellt mit ID {{ param }}",
+            "updated": "Categorie Dossier aktualisiert mit ID {{ param }}",
+            "deleted": "Categorie Dossier gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Categorie Dossier {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Categorie Dossier"
+            },
+            "numCatDossier": "Num Cat Dossier",
+            "nomCatDossier": "Nom Cat Dossier",
+            "remarque": "Remarque",
+            "categorieDossier": "Categorie Dossier"
+        }
+    }
+}

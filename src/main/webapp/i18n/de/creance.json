@@ -1,0 +1,29 @@
+
+{
+    "sympoApp": {
+        "creance" : {
+            "home": {
+                "title": "Creances",
+                "createLabel": "Creance erstellen",
+                "createOrEditLabel": "Creance erstellen oder bearbeiten",
+                "search": "Suche nach Creance"
+            },
+            "created": "Creance erstellt mit ID {{ param }}",
+            "updated": "Creance aktualisiert mit ID {{ param }}",
+            "deleted": "Creance gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Creance {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Creance"
+            },
+            "numCreance": "Num Creance",
+            "nomCreance": "Nom Creance",
+            "creancesType": "Creances Type",
+            "createdAt": "Created At",
+            "updatedAt": "Updated At",
+            "remarque": "Remarque",
+            "creance": "Creance"
+        }
+    }
+}

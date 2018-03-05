@@ -1,0 +1,52 @@
+
+<div *ngIf="creance">
+    <h2><span jhiTranslate="sympoApp.creance.detail.title">Creance</span> {{creance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sympoApp.creance.numCreance">Num Creance</span></dt>
+        <dd>
+            <span>{{creance.numCreance}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.creance.nomCreance">Nom Creance</span></dt>
+        <dd>
+            <span>{{creance.nomCreance}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.creance.creancesType">Creances Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'sympoApp.CreancesType.' + creance.creancesType}}">{{creance.creancesType}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.creance.createdAt">Created At</span></dt>
+        <dd>
+            <span>{{creance.createdAt | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.creance.updatedAt">Updated At</span></dt>
+        <dd>
+            <span>{{creance.updatedAt | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.creance.remarque">Remarque</span></dt>
+        <dd>
+            <span>{{creance.remarque}}</span>
+        </dd>
+        <dt><span jhiTranslate="sympoApp.creance.creance">Creance</span></dt>
+        <dd>
+            <div *ngIf="creance.creance">
+                <a [routerLink]="['/crediteur', creance.creance?.id]">{{creance.creance?.nomCreance}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'creance/'+ creance.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

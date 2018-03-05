@@ -1,0 +1,102 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dossierCategories",
+            "otherEntityName": "categorieDossier",
+            "otherEntityRelationshipName": "categorieDossier"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dossierDebiteurs",
+            "otherEntityName": "debiteur",
+            "otherEntityRelationshipName": "debiteur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dossierPartenaires",
+            "otherEntityName": "partenaire",
+            "otherEntityRelationshipName": "partenaire"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dossierCorrespondances",
+            "otherEntityName": "correspondance",
+            "otherEntityRelationshipName": "correspondance"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dossierInstructions",
+            "otherEntityName": "dossierInstruction",
+            "otherEntityRelationshipName": "dossierInstruction"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "dossier",
+            "otherEntityName": "cabinet",
+            "otherEntityField": "nomDossier"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numDossier",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "EtatDossier",
+            "fieldValues": "ENCOURS,ANNULE,ARRETE,SUSPENDU"
+        },
+        {
+            "fieldName": "nomDossier",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 60,
+            "fieldValidateRulesMaxlength": 60
+        },
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateCloture",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "remarque",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "changelogDate": "20180305134310",
+    "entityTableName": "dossier",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

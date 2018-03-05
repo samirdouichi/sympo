@@ -1,0 +1,35 @@
+
+{
+    "sympoApp": {
+        "dossier" : {
+            "home": {
+                "title": "Dossiers",
+                "createLabel": "Create a new Dossier",
+                "createOrEditLabel": "Create or edit a Dossier",
+                "search": "Search for Dossier"
+            },
+            "created": "A new Dossier is created with identifier {{ param }}",
+            "updated": "A Dossier is updated with identifier {{ param }}",
+            "deleted": "A Dossier is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dossier {{ id }}?"
+            },
+            "detail": {
+                "title": "Dossier"
+            },
+            "numDossier": "Num Dossier",
+            "status": "Status",
+            "nomDossier": "Nom Dossier",
+            "dateCreation": "Date Creation",
+            "updatedAt": "Updated At",
+            "dateCloture": "Date Cloture",
+            "remarque": "Remarque",
+            "dossierCategories": "Dossier Categories",
+            "dossierDebiteurs": "Dossier Debiteurs",
+            "dossierPartenaires": "Dossier Partenaires",
+            "dossierCorrespondances": "Dossier Correspondances",
+            "dossierInstructions": "Dossier Instructions",
+            "dossier": "Dossier"
+        }
+    }
+}

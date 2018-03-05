@@ -1,0 +1,100 @@
+<div>
+    <h2>
+        <span jhiTranslate="sympoApp.cabinet.home.title">Cabinets</span>
+        <button class="btn btn-primary float-right jh-create-entity create-cabinet" [routerLink]="['/', { outlets: { popup: ['cabinet-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="sympoApp.cabinet.home.createLabel">
+            Create new Cabinet
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'sympoApp.cabinet.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="cabinets">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="raisonSocial"><span jhiTranslate="sympoApp.cabinet.raisonSocial">Raison Social</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="raisonSocialArabe"><span jhiTranslate="sympoApp.cabinet.raisonSocialArabe">Raison Social Arabe</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="rc"><span jhiTranslate="sympoApp.cabinet.rc">Rc</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="patente"><span jhiTranslate="sympoApp.cabinet.patente">Patente</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="numTelephone"><span jhiTranslate="sympoApp.cabinet.numTelephone">Num Telephone</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="sympoApp.cabinet.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresse"><span jhiTranslate="sympoApp.cabinet.adresse">Adresse</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nomGerant"><span jhiTranslate="sympoApp.cabinet.nomGerant">Nom Gerant</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activated"><span jhiTranslate="sympoApp.cabinet.activated">Activated</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="sympoApp.cabinet.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="remarque"><span jhiTranslate="sympoApp.cabinet.remarque">Remarque</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cabinet of cabinets ;trackBy: trackId">
+                <td><a [routerLink]="['../cabinet', cabinet.id ]">{{cabinet.id}}</a></td>
+                <td>{{cabinet.raisonSocial}}</td>
+                <td>{{cabinet.raisonSocialArabe}}</td>
+                <td>{{cabinet.rc}}</td>
+                <td>{{cabinet.patente}}</td>
+                <td>{{cabinet.numTelephone}}</td>
+                <td>{{cabinet.email}}</td>
+                <td>{{cabinet.adresse}}</td>
+                <td>{{cabinet.nomGerant}}</td>
+                <td>{{cabinet.activated}}</td>
+                <td>{{cabinet.dateCreation | date:'mediumDate'}}</td>
+                <td>{{cabinet.remarque}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../cabinet', cabinet.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cabinet/'+ cabinet.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cabinet/'+ cabinet.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="cabinets && cabinets.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

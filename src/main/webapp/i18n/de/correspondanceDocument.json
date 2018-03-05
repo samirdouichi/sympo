@@ -1,0 +1,25 @@
+
+{
+    "sympoApp": {
+        "correspondanceDocument" : {
+            "home": {
+                "title": "Correspondance Documents",
+                "createLabel": "Correspondance Document erstellen",
+                "createOrEditLabel": "Correspondance Document erstellen oder bearbeiten",
+                "search": "Suche nach Correspondance Document"
+            },
+            "created": "Correspondance Document erstellt mit ID {{ param }}",
+            "updated": "Correspondance Document aktualisiert mit ID {{ param }}",
+            "deleted": "Correspondance Document gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Correspondance Document {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Correspondance Document"
+            },
+            "correspondanceDocument": "Correspondance Document",
+            "remarque": "Remarque",
+            "custom": "Custom"
+        }
+    }
+}

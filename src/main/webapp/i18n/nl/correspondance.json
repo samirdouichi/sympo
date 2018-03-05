@@ -1,0 +1,30 @@
+
+{
+    "sympoApp": {
+        "correspondance" : {
+            "home": {
+                "title": "Correspondances",
+                "createLabel": "Maak een nieuwe Correspondance",
+                "createOrEditLabel": "Maak of wijzig een Correspondance",
+                "search": "Search for Correspondance"
+            },
+            "created": "A new Correspondance is created with identifier {{ param }}",
+            "updated": "A Correspondance is updated with identifier {{ param }}",
+            "deleted": "A Correspondance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Correspondance {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Correspondance"
+            },
+            "correspondanceNom": "Correspondance Nom",
+            "etatCorrespondance": "Etat Correspondance",
+            "remarque": "Remarque",
+            "createdAt": "Created At",
+            "updatedAt": "Updated At",
+            "correspondanceTypes": "Correspondance Types",
+            "correspondanceDocuments": "Correspondance Documents",
+            "correspondance": "Correspondance"
+        }
+    }
+}

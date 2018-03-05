@@ -1,0 +1,65 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "custom",
+            "otherEntityName": "crediteur",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "crediteur"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "dossierInstruction",
+            "otherEntityName": "dossier",
+            "otherEntityField": "numInstruction"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numInstruction",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 6
+        },
+        {
+            "fieldName": "instruction",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "supportInstruction",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "dateCreationInstruction",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "remarque",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "changelogDate": "20180305134311",
+    "entityTableName": "dossier_instruction",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

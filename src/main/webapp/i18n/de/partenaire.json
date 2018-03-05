@@ -1,0 +1,25 @@
+
+{
+    "sympoApp": {
+        "partenaire" : {
+            "home": {
+                "title": "Partenaires",
+                "createLabel": "Partenaire erstellen",
+                "createOrEditLabel": "Partenaire erstellen oder bearbeiten",
+                "search": "Suche nach Partenaire"
+            },
+            "created": "Partenaire erstellt mit ID {{ param }}",
+            "updated": "Partenaire aktualisiert mit ID {{ param }}",
+            "deleted": "Partenaire gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Partenaire {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Partenaire"
+            },
+            "nomPartenaire": "Nom Partenaire",
+            "resetDate": "Reset Date",
+            "partenaire": "Partenaire"
+        }
+    }
+}

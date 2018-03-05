@@ -1,0 +1,117 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCreanceLabel" jhiTranslate="sympoApp.creance.home.createOrEditLabel">Create or edit a Creance</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!creance.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="creance.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.numCreance" for="field_numCreance">Num Creance</label>
+            <input type="text" class="form-control" name="numCreance" id="field_numCreance"
+                [(ngModel)]="creance.numCreance" required minlength="1" maxlength="6"/>
+            <div [hidden]="!(editForm.controls.numCreance?.dirty && editForm.controls.numCreance?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numCreance?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numCreance?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numCreance?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 6 }">
+                   This field cannot be longer than 6 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.nomCreance" for="field_nomCreance">Nom Creance</label>
+            <input type="text" class="form-control" name="nomCreance" id="field_nomCreance"
+                [(ngModel)]="creance.nomCreance" required minlength="1" maxlength="26"/>
+            <div [hidden]="!(editForm.controls.nomCreance?.dirty && editForm.controls.nomCreance?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCreance?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCreance?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomCreance?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 26 }">
+                   This field cannot be longer than 26 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.creancesType" for="field_creancesType">Creances Type</label>
+            <select class="form-control" name="creancesType" [(ngModel)]="creance.creancesType" id="field_creancesType" >
+                <option value="FACTURE">{{'sympoApp.CreancesType.FACTURE' | translate}}</option>
+                <option value="CHEQUE">{{'sympoApp.CreancesType.CHEQUE' | translate}}</option>
+                <option value="LETTRECHANGE">{{'sympoApp.CreancesType.LETTRECHANGE' | translate}}</option>
+                <option value="CONVENTION">{{'sympoApp.CreancesType.CONVENTION' | translate}}</option>
+                <option value="CONTRTA">{{'sympoApp.CreancesType.CONTRTA' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.createdAt" for="field_createdAt">Created At</label>
+            <div class="input-group">
+                <input id="field_createdAt" type="text" class="form-control" name="createdAt" ngbDatepicker  #createdAtDp="ngbDatepicker" [(ngModel)]="creance.createdAt"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="createdAtDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.createdAt?.dirty && editForm.controls.createdAt?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdAt?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.updatedAt" for="field_updatedAt">Updated At</label>
+            <div class="input-group">
+                <input id="field_updatedAt" type="text" class="form-control" name="updatedAt" ngbDatepicker  #updatedAtDp="ngbDatepicker" [(ngModel)]="creance.updatedAt"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="updatedAtDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.updatedAt?.dirty && editForm.controls.updatedAt?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedAt?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.remarque" for="field_remarque">Remarque</label>
+            <input type="text" class="form-control" name="remarque" id="field_remarque"
+                [(ngModel)]="creance.remarque" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.creance.creance" for="field_creance">Creance</label>
+            <select class="form-control" id="field_creance" name="creance" [(ngModel)]="creance.creance" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="crediteurOption.id === creance.creance?.id ? creance.creance : crediteurOption" *ngFor="let crediteurOption of crediteurs; trackBy: trackCrediteurById">{{crediteurOption.nomCreance}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

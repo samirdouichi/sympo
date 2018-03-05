@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "custom",
+            "otherEntityName": "correspondance",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "correspondanceTypes"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codeCorrespondance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 40
+        },
+        {
+            "fieldName": "nomCorrespondance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 40
+        }
+    ],
+    "changelogDate": "20180305134315",
+    "entityTableName": "correspondance_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

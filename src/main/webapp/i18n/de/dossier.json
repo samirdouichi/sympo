@@ -1,0 +1,35 @@
+
+{
+    "sympoApp": {
+        "dossier" : {
+            "home": {
+                "title": "Dossiers",
+                "createLabel": "Dossier erstellen",
+                "createOrEditLabel": "Dossier erstellen oder bearbeiten",
+                "search": "Suche nach Dossier"
+            },
+            "created": "Dossier erstellt mit ID {{ param }}",
+            "updated": "Dossier aktualisiert mit ID {{ param }}",
+            "deleted": "Dossier gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Dossier {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Dossier"
+            },
+            "numDossier": "Num Dossier",
+            "status": "Status",
+            "nomDossier": "Nom Dossier",
+            "dateCreation": "Date Creation",
+            "updatedAt": "Updated At",
+            "dateCloture": "Date Cloture",
+            "remarque": "Remarque",
+            "dossierCategories": "Dossier Categories",
+            "dossierDebiteurs": "Dossier Debiteurs",
+            "dossierPartenaires": "Dossier Partenaires",
+            "dossierCorrespondances": "Dossier Correspondances",
+            "dossierInstructions": "Dossier Instructions",
+            "dossier": "Dossier"
+        }
+    }
+}

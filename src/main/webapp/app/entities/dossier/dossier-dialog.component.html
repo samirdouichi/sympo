@@ -1,0 +1,132 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDossierLabel" jhiTranslate="sympoApp.dossier.home.createOrEditLabel">Create or edit a Dossier</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dossier.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dossier.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.numDossier" for="field_numDossier">Num Dossier</label>
+            <input type="text" class="form-control" name="numDossier" id="field_numDossier"
+                [(ngModel)]="dossier.numDossier" required minlength="1" maxlength="100"/>
+            <div [hidden]="!(editForm.controls.numDossier?.dirty && editForm.controls.numDossier?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numDossier?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numDossier?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numDossier?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="dossier.status" id="field_status" >
+                <option value="ENCOURS">{{'sympoApp.EtatDossier.ENCOURS' | translate}}</option>
+                <option value="ANNULE">{{'sympoApp.EtatDossier.ANNULE' | translate}}</option>
+                <option value="ARRETE">{{'sympoApp.EtatDossier.ARRETE' | translate}}</option>
+                <option value="SUSPENDU">{{'sympoApp.EtatDossier.SUSPENDU' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.nomDossier" for="field_nomDossier">Nom Dossier</label>
+            <input type="text" class="form-control" name="nomDossier" id="field_nomDossier"
+                [(ngModel)]="dossier.nomDossier" required minlength="60" maxlength="60"/>
+            <div [hidden]="!(editForm.controls.nomDossier?.dirty && editForm.controls.nomDossier?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomDossier?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomDossier?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 60 }">
+                   This field is required to be at least 60 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomDossier?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 60 }">
+                   This field cannot be longer than 60 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.dateCreation" for="field_dateCreation">Date Creation</label>
+            <div class="input-group">
+                <input id="field_dateCreation" type="text" class="form-control" name="dateCreation" ngbDatepicker  #dateCreationDp="ngbDatepicker" [(ngModel)]="dossier.dateCreation"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateCreationDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.updatedAt" for="field_updatedAt">Updated At</label>
+            <div class="input-group">
+                <input id="field_updatedAt" type="text" class="form-control" name="updatedAt" ngbDatepicker  #updatedAtDp="ngbDatepicker" [(ngModel)]="dossier.updatedAt"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="updatedAtDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.updatedAt?.dirty && editForm.controls.updatedAt?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedAt?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.dateCloture" for="field_dateCloture">Date Cloture</label>
+            <div class="input-group">
+                <input id="field_dateCloture" type="text" class="form-control" name="dateCloture" ngbDatepicker  #dateClotureDp="ngbDatepicker" [(ngModel)]="dossier.dateCloture"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateClotureDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.remarque" for="field_remarque">Remarque</label>
+            <input type="text" class="form-control" name="remarque" id="field_remarque"
+                [(ngModel)]="dossier.remarque" maxlength="100"/>
+            <div [hidden]="!(editForm.controls.remarque?.dirty && editForm.controls.remarque?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.remarque?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sympoApp.dossier.dossier" for="field_dossier">Dossier</label>
+            <select class="form-control" id="field_dossier" name="dossier" [(ngModel)]="dossier.dossier" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="cabinetOption.id === dossier.dossier?.id ? dossier.dossier : cabinetOption" *ngFor="let cabinetOption of cabinets; trackBy: trackCabinetById">{{cabinetOption.nomDossier}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
